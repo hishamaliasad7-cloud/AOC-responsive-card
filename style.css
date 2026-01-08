@@ -12,7 +12,7 @@ body {
 body {
     font-family: "Inter", "Segoe UI", sans-serif;
     background: #000;
-    /* subtle background if cards don't fill */
+   
     color: #fff;
 }
 
@@ -23,7 +23,7 @@ body {
 }
 
 
-/* Grid: no gaps, full-bleed */
+
 
 .grid {
     width: 100vw;
@@ -35,7 +35,7 @@ body {
 }
 
 
-/* Cards: no external spacing, internal padding for content */
+
 
 .card {
     padding: 3rem;
@@ -43,12 +43,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* keep edges flush */
+   
     border-radius: 0;
     min-height: 40vh;
     box-sizing: border-box;
     overflow: visible;
-    /* allow images to overflow if needed */
+    
 }
 
 ..card1 {
@@ -76,7 +76,7 @@ body {
 }
 
 
-/* Content layout inside a card */
+
 
 .content {
     width: 60%;
@@ -123,7 +123,7 @@ body {
 }
 
 
-/* Small screens: horizontal carousel (1 card per viewport) + dots */
+
 
 @media (max-width: 599px) {
     .grid {
@@ -166,7 +166,7 @@ body {
         background: rgba(0, 0, 0, 0.25);
         transition: transform .3s ease, background .3s ease;
     }
-    /* CSS-only active dot via :target */
+    
     #card1:target~.dots a[href="#card1"],
     #card2:target~.dots a[href="#card2"],
     #card3:target~.dots a[href="#card3"],
@@ -179,7 +179,7 @@ body {
 }
 
 
-/* Medium screens: 2 columns, 3 rows -> fill viewport height */
+
 
 @media (min-width: 600px) and (max-width: 1023px) {
     .grid {
@@ -201,7 +201,7 @@ body {
 }
 
 
-/* Large screens: 3 columns, 2 rows -> fill viewport height */
+
 
 @media (min-width: 1024px) {
     .grid {
@@ -223,7 +223,6 @@ body {
 }
 
 
-/* Utility: ensure images scale nicely */
 
 img {
     max-width: 100%;
@@ -232,14 +231,14 @@ img {
 }
 
 
-/* optional: improve link focus */
+
 
 .dot:focus {
     outline: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 
-/* Ensure images appear above card content and have fallback-friendly styles */
+/
 
 .brand,
 .product {
@@ -250,7 +249,7 @@ img {
 }
 
 
-/* Provide a visible fallback background for inline SVG placeholders */
+
 
 img.fallback {
     background: rgba(255, 255, 255, 0.95);
