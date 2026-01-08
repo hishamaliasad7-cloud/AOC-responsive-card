@@ -2,18 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aoc responsive layout</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Carousel & Grid</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <main class="wrapper">
-        <div id="grid" class="grid"></div>
-        <div id="dots" class="dots"></div>
+
+        <section class="grid">
+
+            <article id="card1" class="card card1">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-f-secure.png" alt="F-Secure logo" />
+                    <h2>ASTONISHING FEATURES</h2>
+                    <p>1 Year Free Mobile Security</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-1.png" alt="tablet" />
+            </article>
+
+            <article id="card2" class="card card2">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-digitainment.png" alt="Digitainment logo" />
+                    <h2>Be hooked!</h2>
+                    <p>2000+ Movies from Bollywood</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-2.png" alt="phone movies" />
+            </article>
+
+            <article id="card3" class="card card3">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-adaptxt.png" alt="Adaptxt logo" />
+                    <h2>FREE MOBILE POUCH</h2>
+                    <p>The best things in life are free</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-3.png" alt="pouch" />
+            </article>
+
+            <article id="card4" class="card card4">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-hungama.png" alt="Hungama logo" />
+                    <h2>1000's of Songs</h2>
+                    <p>The thump never ends here</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-4.png" alt="music" />
+            </article>
+
+            <article id="card5" class="card card5">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-adaptxt.png" alt="Adaptxt logo" />
+                    <h2>21 Languages</h2>
+                    <p>Being globally you</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-5.png" alt="languages" />
+            </article>
+
+            <article id="card6" class="card card6">
+                <div class="content">
+                    <img class="brand" src="https://krds-assignment.github.io/aoc/api-assets/logo-read-where.png" alt="ReadWhere logo" />
+                    <h2>For the Wise</h2>
+                    <p>1000 pts discount on subscription</p>
+                </div>
+                <img class="product" src="https://krds-assignment.github.io/aoc/api-assets/image-6.png" alt="book" />
+            </article>
+
+        </section>
+
+
+        <nav class="dots">
+            <a href="#card1" class="dot"></a>
+            <a href="#card2" class="dot"></a>
+            <a href="#card3" class="dot"></a>
+            <a href="#card4" class="dot"></a>
+            <a href="#card5" class="dot"></a>
+            <a href="#card6" class="dot"></a>
+        </nav>
+
     </main>
-    <script src="app.js"></script>
+
+
+
 </body>
 
 </html>
