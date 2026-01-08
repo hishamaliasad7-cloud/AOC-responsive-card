@@ -1,0 +1,115 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ 
+ body {
+     font-family: "Inter", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ 
+ .wrapper {
+     width: 100%;
+ }
+ 
+ .grid {
+     display: grid;
+     width: 100%;
+     min-height: 100vh;
+ }
+ 
+ .card {
+     padding: 28px;
+     color: antiquewhite;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .content {
+     width: 60%;
+ }
+ 
+ .brand {
+     width: 56px;
+     margin-bottom: 14px;
+ }
+ 
+ .content h2 {
+     font-size: 1.35rem;
+     line-height: 1.25;
+     margin-bottom: 8px;
+     font-weight: 600;
+ }
+ 
+ .content p {
+     font-size: 0.9rem;
+     opacity: 0.9;
+ }
+ 
+ .product {
+     width: 34%;
+     max-width: 190px;
+ }
+ 
+ @media (max-width: 599px) {
+     .grid {
+         display: flex;
+         overflow-x: auto;
+         scroll-snap-type: x mandatory;
+         scroll-behavior: smooth;
+         -webkit-overflow-scrolling: touch;
+     }
+     .card {
+         min-width: 100%;
+         flex-direction: column;
+         text-align: center;
+         scroll-snap-align: start;
+     }
+     .content {
+         width: 100%;
+     }
+     .product {
+         width: 65%;
+         margin-top: 18px;
+     }
+     .grid::-webkit-scrollbar {
+         display: none;
+     }
+ }
+ 
+ .dots {
+     display: none;
+ }
+ 
+ @media (max-width: 599px) {
+     .dots {
+         display: flex;
+         justify-content: center;
+         gap: 8px;
+         padding: 12px 0;
+     }
+     .dot {
+         width: 8px;
+         height: 8px;
+         background: rgba(0, 0, 0, 0.25);
+         border-radius: 50%;
+         transition: transform 0.3s ease, background 0.3s ease;
+     }
+     .dot.active {
+         background: rgba(0, 0, 0, 0.7);
+         transform: scale(1.3);
+     }
+ }
+ 
+ @media (min-width: 600px) and (max-width: 1023px) {
+     .grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+ }
+ 
+ @media (min-width: 1024px) {
+     .grid {
+         grid-template-columns: repeat(3, 1fr);
+     }
+ }
