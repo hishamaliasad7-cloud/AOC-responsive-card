@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Inter, Segoe UI, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+
+.card {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 35vh;
+}
+
+.card1 {
+    background: #cf520f;
+}
+
+.card2 {
+    background: #785af2;
+}
+
+.card3 {
+    background: #f0b86f;
+}
+
+.card4 {
+    background: #f25a6e;
+}
+
+.card5 {
+    background: #c7ef27;
+}
+
+.card6 {
+    background: #4bb7a7;
+}
+
+.content {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.brand {
+    width: 56px;
+    margin-bottom: 14px;
+}
+
+.product {
+    width: 35%;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 599px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        min-height: 40vh;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .product {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
