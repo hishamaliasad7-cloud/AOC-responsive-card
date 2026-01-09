@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #000;
+   
+    color: #fff;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+
+.grid {
+    width: 100vw;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-content: start;
+}
+
+
+
+
+.card {
+    padding: 3rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    border-radius: 0;
+    min-height: 40vh;
+    box-sizing: border-box;
+    overflow: visible;
+    
+}
+
+..card1 {
+    background: #cf520f;
+}
+
+.card2 {
+    background: #785af2;
+}
+
+.card3 {
+    background: #f0b86f;
+}
+
+.card4 {
+    background: #f25a6e;
+}
+
+.card5 {
+    background: #c7ef27;
+}
+
+.card6 {
+    background: #4bb7a7;
+}
+
+
+
+
+.content {
+    width: 60%;
+}
+
+.brand {
+    width: 56px;
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.brand svg {
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+
+.product svg {
+    width: 34%;
+    max-width: 240px;
+    height: auto;
+    display: block;
+}
+
+.content h2 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+.product {
+    width: 34%;
+    max-width: 240px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+
+
+@media (max-width: 599px) {
+    .grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+    }
+    .card {
+        min-width: 100%;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+        padding: 2.5rem 1.25rem;
+        scroll-snap-align: start;
+    }
+    .content {
+        width: 100%;
+    }
+    .product {
+        width: 65%;
+        margin-top: 1.5rem;
+    }
+    .content h2 {
+        font-size: 1.6rem;
+    }
+    /* dots */
+    .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 0;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.25);
+        transition: transform .3s ease, background .3s ease;
+    }
+    
+    #card1:target~.dots a[href="#card1"],
+    #card2:target~.dots a[href="#card2"],
+    #card3:target~.dots a[href="#card3"],
+    #card4:target~.dots a[href="#card4"],
+    #card5:target~.dots a[href="#card5"],
+    #card6:target~.dots a[href="#card6"] {
+        background: rgba(0, 0, 0, 0.7);
+        transform: scale(1.3);
+    }
+}
+
+
+
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: calc(100vh / 3);
+        height: 100vh;
+    }
+    .card {
+        padding: 2.25rem;
+    }
+    .content {
+        width: 60%;
+    }
+    .product {
+        width: 36%;
+        max-width: 220px;
+    }
+}
+
+
+
+
+@media (min-width: 1024px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: calc(100vh / 2);
+        height: 100vh;
+    }
+    .card {
+        padding: 3rem;
+    }
+    .content {
+        width: 60%;
+    }
+    .product {
+        width: 32%;
+        max-width: 240px;
+    }
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+.dot:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+
+/
+
+.brand,
+.product {
+    position: relative;
+    z-index: 2;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+
+
+img.fallback {
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+    padding: 6px;
+    border-radius: 4px;
+}
