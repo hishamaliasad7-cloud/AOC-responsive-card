@@ -160,7 +160,7 @@ p {
     }
 }
 
-/* MOBILE - 640px and below: 1 card at a time, everything centered */
+
 @media (max-width: 640px) {
     .grid {
         grid-template-columns: 1fr;
@@ -217,7 +217,7 @@ p {
     }
 }
 
-/* EXTRA SMALL MOBILE - 360px and below */
+
 @media (max-width: 360px) {
     .card {
         padding: 1.5rem 1rem;
