@@ -7,6 +7,7 @@ function AdminPage() {
   const [cards, setCards] = useState([])
   const [addCard, setAddCard] = useState(false)
   const [editCardId, setEditCardId] = useState(null)
+  const [successMessage, setSuccessMessage] = useState('')
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -45,8 +46,9 @@ function AdminPage() {
     e.preventDefault()
     try {
       await axios.post(API_URL, formData)
+      setSuccessMessage('Card added successfully!')
+      setTimeout(() => setSuccessMessage(''), 3000)
       resetForm()
-
       setCards(prev => [...prev, formData])
     }
     catch (error) {
@@ -94,6 +96,8 @@ function AdminPage() {
     try {
       const res = await axios.put(`${API_URL}/${card.id}`, card)
       setCards((prev) => prev.map(c => c.id === card.id ? res.data : c))
+      setSuccessMessage('Card updated successfully!')
+      setTimeout(() => setSuccessMessage(''), 3000)
       setEditCardId(null)
       console.log(res.data)
     } catch (error) {
@@ -111,7 +115,22 @@ function AdminPage() {
     }
   }
 
-  return (
+  retu{successMessage && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          backgroundColor: '#4CAF50',
+          color: 'white',
+          padding: '15px 20px',
+          borderRadius: '4px',
+          zIndex: 1000,
+          boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+        }}>
+          {successMessage}
+        </div>
+      )}
+      rn (
     <>
       <div className='nav'>
         <h1 className='heading'>All Cards</h1>
