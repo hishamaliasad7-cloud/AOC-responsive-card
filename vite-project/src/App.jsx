@@ -1,31 +1,50 @@
+import { useEffect, useState } from 'react'
+import Card from './components/Card'
+import './App.css'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
-import { useState, useEffect } from "react";
-import Card from "./components/card";
-import './components/style.css';
+function App() {
+  const [cards, setCards] = useState([])
+  const navigate = useNavigate()
 
-export default function App() {
-  const [datas, setDatas] = useState([]);
-  
+  const fetchCards = () => {
+    axios.get('/features')
+      .then(datas => setCards(datas.data))
+  }
+
   useEffect(() => {
-    fetch('https://krds-assignment.github.io/aoc/api-assets/data.json')
-      .then(res => res.json())
-      .then(data => setDatas(data.features));
-  }, []);
-  
+    fetchCards()
+  }, [])
+
+  const handleEdit = (id) => navigate(`/admin/${id}`)
+
+  const handleDelete = async (id) => {
+    await axios.delete(`/features/${id}`)
+    fetchCards()
+  }
+
   return (
-    <div className="wrapper">
-      <div className="grid">
-        {datas.map((data, index) => (
-          <Card 
-            key={data.name}
-            className={`card card${(index % 6) + 1}`}
-            title={data.title}
-            text={data.desc}
-            brand={data.logo}
-            image={data.image}
+    <>
+      <div className='grid'>
+        {cards.filter(card => card.active !== false).map((data) => {
+          return <Card
+            key={data.id}
+            logoUrl={data.logo}
+            heading={data.title}
+            text={data.description}
+            imageUrl={data.image}
+            id={data.id}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+            color={data.color}
           />
-        ))}
+        })}
       </div>
-    </div>
-  );
+    </>
+  )
 }
+
+export default App
+
+

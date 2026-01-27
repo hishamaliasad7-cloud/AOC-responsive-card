@@ -1,17 +1,24 @@
+import React from 'react'
 
-function Card({ title, className = '', id, brand, text, alt = '', image }) {
+function Card({ heading, text, color, logoUrl, imageUrl }) {
+
+
   return (
-    <article id={id} className={className}>
-      <div className='content'>
-        <img className="brand" src={brand} alt="brand logo" />
-        <div className="text-content">
-          <h2>{title}</h2>
+    <div className="card" style={{ backgroundColor: color }}>
+      <div className="text-container">
+        <img src={logoUrl} alt={heading} className="logo" />
+        <div className="text text-content">
+          <h2>{heading} </h2>
+          <hr />
           <p>{text}</p>
         </div>
       </div>
-      <img className="product" src={image} alt={alt} />
-    </article>
-  );
+      <div className="image">
+        <img src={imageUrl} alt={heading} />
+      </div>
+
+    </div>
+  )
 }
 
-export default Card;
+export default Card
