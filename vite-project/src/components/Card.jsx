@@ -1,8 +1,6 @@
 import React from 'react'
 
 function Card({ heading, text, color, logoUrl, imageUrl }) {
-
-
   return (
     <div className="card" style={{ backgroundColor: color }}>
       <div className="text-container">
@@ -16,7 +14,6 @@ function Card({ heading, text, color, logoUrl, imageUrl }) {
       <div className="image">
         <img src={imageUrl} alt={heading} />
       </div>
-
     </div>
   )
 }

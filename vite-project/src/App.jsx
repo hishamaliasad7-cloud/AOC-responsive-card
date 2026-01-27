@@ -8,14 +8,17 @@ function App() {
   const [cards, setCards] = useState([])
 
 
-  const fetchCards = () => {
-    axios.get('http://192.168.1.92:3000/features')
-      .then(datas => setCards(datas.data))
+  const fetchCards = async () => {
+    try {
+      const response = await axios.get('http://192.168.1.92:3000/features')
+      setCards(response.data)
+    } catch (error) {
+      console.error('Failed to fetch cards:', error.message)
+    }
   }
 
   useEffect(() => {
-    fetchCards();
-
+    fetchCards()
   }, [])
   return (
     <>
@@ -37,6 +40,4 @@ function App() {
 }
 
 export default App
-
-
 

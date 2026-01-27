@@ -1,7 +1,5 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-
-
 import './AdminPage.css'
 
 function AdminPage() {
@@ -19,7 +17,6 @@ function AdminPage() {
     logoName: "",
     imageName: ""
   })
-
 
   const fetchCards = async () => {
     const res = await axios.get(API_URL)
@@ -77,7 +74,6 @@ function AdminPage() {
   }
 
   const handleCardImageChange = (e, id, field) => {
-
     const file = e.target.files[0]
     if (!file) return
     setEditCardId(id)
@@ -128,10 +124,8 @@ function AdminPage() {
       </div>
 
       <div className='container'>
-
         {cards.map((card, index) => (
           <div key={card.id} className='admin-container'>
-
             <h3>Card {index + 1}</h3>
 
             <form className='form' onSubmit={handleSubmit}>
@@ -188,9 +182,7 @@ function AdminPage() {
           <div className='admin-container add-card-inline'>
 
             <h3>New Card</h3>
-
             <form onSubmit={handleSubmit} className='form'>
-
               <input type="file" accept="image/*"
                 onChange={(e) => handleFileChange(e, "logo", "logoName")} />
 
@@ -205,10 +197,7 @@ function AdminPage() {
                 type="text"
                 placeholder='Enter description'
                 value={formData.description}
-                onChange={(e) =>
-                  setFormData({ ...formData, description: e.target.value })
-
-                }
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
 
               <input
