@@ -9,18 +9,20 @@ function App() {
   const navigate = useNavigate()
 
   const fetchCards = () => {
-    axios.get('/features')
+    axios.get('http://localhost:3000/features')
       .then(datas => setCards(datas.data))
   }
 
   useEffect(() => {
     fetchCards()
+    // const interval = setInterval(fetchCards, 1000)
+    // return () => clearInterval(interval)
   }, [])
 
   const handleEdit = (id) => navigate(`/admin/${id}`)
 
   const handleDelete = async (id) => {
-    await axios.delete(`/features/${id}`)
+    await axios.delete(`http://localhost:3000/features/${id}`)
     fetchCards()
   }
 

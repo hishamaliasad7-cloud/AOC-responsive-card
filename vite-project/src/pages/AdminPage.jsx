@@ -6,7 +6,7 @@ import './AdminPage.css'
 function AdminPage() {
 
   const { id } = useParams()
-  const API_URL = '/features'
+  const API_URL = 'http://localhost:3000/features'
 
   const [cards, setCards] = useState([])
 
@@ -23,13 +23,9 @@ function AdminPage() {
   const [editingId, setEditingId] = useState(null)
 
   const fetchCards = async () => {
-    try {
     const res = await axios.get(API_URL)
     setCards(res.data)
-  } catch (error) {
-    console.error('Error fetching cards:', error)
   }
-}
 
   useEffect(() => {
     fetchCards()
@@ -206,6 +202,7 @@ function AdminPage() {
                   checked={card.active !== false}
                   onChange={(e) => {
                     const newValue = e.target.checked;
+                    // Instant Save
                     axios.put(`${API_URL}/${card.id}`, { ...card, active: newValue })
                       .then(() => fetchCards())
                   }}
@@ -262,6 +259,9 @@ function AdminPage() {
                 <button type="submit">
                   {editingId ? 'Update' : 'Add'}
                 </button>
+                {/* <button type="button" onClick={resetForm}>
+                  Cancel
+                </button> */}
               </div>
 
             </form>
