@@ -1,4 +1,4 @@
-/* Existing CSS content */
+
 * {
     margin: 0;
     padding: 0;
@@ -69,14 +69,13 @@ input:focus {
 }
 
 button {
-    padding: 10px 20px;
+   
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.2s;
-    width: 50%;
-
+  
 
     color: white;
     background-color: rgb(70, 70, 154);
@@ -104,6 +103,25 @@ button:hover {
     max-width: 600px;
     margin: 20px auto;
 }
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+
+
+
+
+
+.actions button{
+    width: 100px;
+    height: 50px;
+}
+
+
 
 .nav {
     display: flex;

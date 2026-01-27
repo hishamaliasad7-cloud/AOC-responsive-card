@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import './AdminPage.css'
 
 function AdminPage() {
-  const API_URL = 'http://192.168.1.92:3000/features'
+  const API_URL = 'http://localhost:3000/features'
   const [cards, setCards] = useState([])
   const [addCard, setAddCard] = useState(false)
   const [editCardId, setEditCardId] = useState(null)
@@ -115,7 +115,9 @@ function AdminPage() {
     }
   }
 
-  retu{successMessage && (
+  return (
+    <>
+      {successMessage && (
         <div style={{
           position: 'fixed',
           top: '20px',
@@ -130,8 +132,6 @@ function AdminPage() {
           {successMessage}
         </div>
       )}
-      rn (
-    <>
       <div className='nav'>
         <h1 className='heading'>All Cards</h1>
         <button
@@ -191,7 +191,18 @@ function AdminPage() {
             </form>
 
             <div className='actions'>
-              <button onClick={() => handleDelete(card.id)}>Delete</button>
+              <button 
+                onClick={() => handleSave(card)} 
+                className='saveBtn'
+              >
+                Save
+              </button>
+              <button 
+                onClick={() => handleDelete(card.id)}
+                className='delete'
+              >
+                Delete
+              </button>
             </div>
 
           </div>
@@ -239,17 +250,6 @@ function AdminPage() {
           </div>
         )}
 
-      </div>
-
-      <div className='save-btn'>
-        <button className="saveBtn" onClick={() => {
-          const card = cards.find(card => card.id === editCardId)
-          if (card) {
-            handleSave(card)
-          }
-        }}>
-          Save
-        </button>
       </div>
 
     </>

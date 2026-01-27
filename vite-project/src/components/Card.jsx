@@ -6,7 +6,7 @@ function Card({ heading, text, color, logoUrl, imageUrl }) {
       <div className="text-container">
         <img src={logoUrl} alt={heading} className="logo" />
         <div className="text text-content">
-          <h2>{heading} </h2>
+          <h2>{heading}</h2>
           <hr />
           <p>{text}</p>
         </div>

@@ -7,10 +7,9 @@ import axios from 'axios'
 function App() {
   const [cards, setCards] = useState([])
 
-
   const fetchCards = async () => {
     try {
-      const response = await axios.get('http://192.168.1.92:3000/features')
+      const response = await axios.get('http://localhost:3000/features')
       setCards(response.data)
     } catch (error) {
       console.error('Failed to fetch cards:', error.message)
@@ -20,6 +19,7 @@ function App() {
   useEffect(() => {
     fetchCards()
   }, [])
+
   return (
     <>
       <div className='grid'>
